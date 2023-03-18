@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>4</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>24</x>
+      <y>12</y>
+      <w>176</w>
+      <h>364</h>
+    </coordinates>
+    <panel_attributes>Management::Farm
+--
+-admin: Admin
+-money: int
+-barns: ArrayList&lt;Barn&gt;
+-coops: ArrayList&lt;Coop&gt;
+-warehouse: Warehouse
+-veterinary: Veterinary
+-workers: ArrayList&lt;Worker&gt;
+-customers: ArrayList&lt;Customer&gt;
++currentDate: Date
+--
++Farm(): ctor
++paySalaries(): void
++nextMonth(): void
++nextDay(): void
++exitAndSave(): void
++addCustomer(Customer customer): void
++saveCustomers(): void
++readCustomers(): void
++getWorkers(): ArrayList&lt;Worker&gt;
++getWarehouse(): Warehouse
++addChicken(Chicken chicken): void
++addSheep(Sheep sheep): void
++addCow(Cow cow): void
++sellAnimal(Animal animal): void
++deleteAnimal(int id): void
++illness(): void
++listofAnimals(): ArrayList&lt;Animal&gt;
++feed(): void
++readEmployees(): void
++saveEmployees(): void
++readAnimals(): void
++saveAnimals(): void
++isTherePlaceFor(char type): boolean
++deleteBarns(): boolean
++addCoops(): boolean
++addBarns(): boolean
++deleteCoops(): void
++updateOfAnimals(): void
++returnEmployee(// veteriner ve salesperson icin de arama yapilacak&#13;
+int id): // veteriner ve salesperson icin de arama yapilacak&#13;
+Employee
++giveSalaryOfEmployee(ArrayList&lt;Employee&gt; employees): void
++getMoney(): int
++getBarns(): ArrayList&lt;Barn&gt;
++getCoops(): ArrayList&lt;Coop&gt;
++setMoney(int money): void
++getVeterinary(): Veterinary
++setVeterinary(Veterinary veterinary): void
++getAdmin(): Admin
++setAdmin(Admin admin): void
++getCustomers(): ArrayList&lt;Customer&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>204</x>
+      <y>12</y>
+      <w>236</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>Management::Chicken
+--
++idCounter : int
++costOfMeal : int
+-id: int
+-monthAge: int
+-birthDate: Date
+-gender: char
+-quality: int
+-isIll: boolean
+-incubationCounter: int
++maxChickValueDuringIncubation : int
+--
++Chicken(int quality, int monthAge): ctor
++Chicken(int id, Date date, char gender, int quality, int monthAge, int incubationCounter): ctor
++animalProduct(): Product
++breeding(): void
++valueOfAnimal(): int
++getId(): int
++getBirthDate(): Date
++getGender(): char
++getQuality(): int
++isIll(): boolean
++setId(int id): void
++setMonthAge(int age): void
++setBirthDate(Date birthDate): void
++setGender(char gender): void
++setQuality(int quality): void
++setIll(boolean isIll): void
++getIncubationCounter(): int
++getMonthAge(): int
++setIncubationCounter(int incubationCounter): void
++display(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>444</x>
+      <y>12</y>
+      <w>224</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>Management::Cow
+--
++idCounter : int
++costOfMeal : int
+-id: int
+-age: int
+-birthDate: Date
+-gender: char
+-quality: int
+-isIll: boolean
+-pregnancyCounter: int
+--
++Cow(int quality, int age): ctor
++Cow(int id, Date birthDate, char gender, int quality, int age, int pregnancyCounter): ctor
++animalProduct(): Product
++breeding(): void
++valueOfAnimal(): int
++getId(): int
++getAge(): int
++getBirthDate(): Date
++getGender(): char
++getQuality(): int
++isIll(): boolean
++setId(int id): void
++setAge(int age): void
++setBirthDate(Date birthDate): void
++setGender(char gender): void
++setQuality(int quality): void
++setIll(boolean ill): void
++getPregnancyCounter(): int
++setPregnancyCounter(int pregnancyCounter): void
++display(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>380</y>
+      <w>96</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>Management::Barn
+--
++maxCapacity : int
+-population: int
+-workers: Worker[]
+-sheeps: ArrayList&lt;Sheep&gt;
+-cows: ArrayList&lt;Cow&gt;
+--
++Barn(): ctor
++checkCowGender(): boolean
++checkSheepGender(): boolean
++isFull(char type): boolean
++addSheep(Sheep sheep): boolean
++addCow(Cow cow): boolean
++deleteSheep(int id): boolean
++deleteCow(int id): boolean
++returnInfoAnimal(int id): Animal
++getPopulation(): int
++getSheeps(): ArrayList&lt;Sheep&gt;
++getCows(): ArrayList&lt;Cow&gt;
++getWorkers(): Worker[]
++setWorkers(Worker[] workers): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>256</x>
+      <y>380</y>
+      <w>116</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Management::Worker
+--
+-name: String
+-workingArea: String
+-id: int
+-salary: int
+-isWorking: boolean
+--
++Worker(String name, int id, int salary): ctor
++getName(): String
++getId(): int
++getSalary(): int
++setName(String name): void
++setId(int id): void
++setSalary(int salary): void
++getWorkingArea(): String
++setWorkingArea(String workingArea): void
++isWorking(): boolean
++setWorking(boolean isWorking): void
++display(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>376</x>
+      <y>380</y>
+      <w>108</w>
+      <h>116</h>
+    </coordinates>
+    <panel_attributes>Management::Coop
+--
++maxCapacity : int
+-population: int
+-worker: Worker
+-chickens: ArrayList&lt;Chicken&gt;
+--
++Coop(): ctor
++isFull(): boolean
++addChicken(Chicken chicken): boolean
++deleteChicken(int id): boolean
++returnInfoAnimal(int id): Animal
++checkChickenGender(): boolean
++getWorker(): Worker
++getPopulation(): int
++getChickens(): ArrayList&lt;Chicken&gt;
++setWorker(Worker worker): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>488</x>
+      <y>380</y>
+      <w>208</w>
+      <h>116</h>
+    </coordinates>
+    <panel_attributes>Management::Product
+--
+-productName: String
+-animalType: String
+-dayCounter: int
+-price: int
+--
++Product(String productName, String animalType, int price): ctor
++Product(String productName, String animalType, int dayCounter, int price): ctor
++getAnimalType(): String
++getProductName(): String
++getPrice(): int
++setAnimalType(String animalType): void
++setPrice(int price): void
++getDayCounter(): int
++setDayCounter(int dayCounter): void
++display(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>380</y>
+      <w>120</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Management::Date
+--
+-day: int
+-month: int
+-year: int
+--
++Date(int day, int month, int year): ctor
++Date(String line): ctor
++equalsDay(Date date1, Date date2): boolean
++copy(): Date
++toString(): String
++getDay(): int
++numberOfDays(): int
++getMonth(): int
++getYear(): int
++oneDayAfter(): Date
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>536</y>
+      <w>128</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Management::SalesPerson
+--
+-name: String
+-id: int
+-salary: int
+--
++SalesPerson(String name, int id, int salary): ctor
++controlOfProduct(Product product): boolean
++getName(): String
++getId(): int
++getSalary(): int
++setName(String name): void
++setId(int id): void
++setSalary(int salary): void
++display(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>152</x>
+      <y>536</y>
+      <w>124</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Management::Warehouse
+--
+-products: ArrayList&lt;Product&gt;
+-bazaar: Bazaar
+--
++Warehouse(): ctor
++readProducts(): void
++updateProducts(): void
++searchProduct(String str): ArrayList&lt;Product&gt;
++saveProducts(): void
++addProduct(Product product): void
++deleteProduct(Product product): void
++getBazaar(): Bazaar
++getProducts(): ArrayList&lt;Product&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>536</y>
+      <w>72</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Management::Animal
+--
+--
++animalProduct(): Product
++breeding(): void
++valueOfAnimal(): int
++isIll(): boolean
++setIll(boolean b): void
++getId(): int
++display(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>356</x>
+      <y>536</y>
+      <w>124</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>Management::Customer
+--
+-name: String
+-password: String
+--
++Customer(String name, String password): ctor
++setName(String name): void
++getName(): String
++getPassword(): String
++setPassword(String password): void
++display(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>484</x>
+      <y>536</y>
+      <w>84</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Management::Admin
+--
+-name: String
+-password: String
+--
++Admin(): ctor
++promote(int employeeId): void
++getName(): String
++getPassword(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>572</x>
+      <y>536</y>
+      <w>68</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Management::Employee
+--
+--
++getSalary(): int
++setSalary(int i): void
++display(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>644</x>
+      <y>536</y>
+      <w>72</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Management::Main
+--
++farm: Farm
+--
++main(String[] args): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>644</y>
+      <w>84</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>Management::FarmLandDriver
+--
+--
++main(String[] args): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>24</x>
+      <y>0</y>
+      <w>56</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>Management
+--
+bg=gray
+fg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>672</x>
+      <y>12</y>
+      <w>236</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>Management::Sheep
+--
++idCounter : int
++costOfMeal : int
+-id: int
+-age: int
+-birthDate: Date
+-gender: char
+-quality: int
+-isIll: boolean
+-pregnancyCounter: int
+--
++Sheep(int quality, int age): ctor
++Sheep(int id, Date birthDate, char gender, int quality, int age, int pregnancyCounter): ctor
++animalProduct(): Product
++breeding(): void
++valueOfAnimal(): int
++getId(): int
++getAge(): int
++getBirthDate(): Date
++getGender(): char
++getQuality(): int
++isIll(): boolean
++setId(int id): void
++setAge(int age): void
++setBirthDate(Date birthDate): void
++setGender(char gender): void
++setQuality(int quality): void
++setIll(boolean ill): void
++getPregnancyCounter(): int
++setPregnancyCounter(int pregnancyCounter): void
++display(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>380</y>
+      <w>132</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Management::Veterinary
+--
+-name: String
+-id: int
+-salary: int
+-vaccinatedAnimals: ArrayList&lt;Integer&gt;
+--
++Veterinary(String name, int id, int salary): ctor
++heal(): void
++inseminateForChicken(): void
++inseminateForSheeps(): void
++inseminateForCows(): void
++getName(): String
++getId(): int
++getSalary(): int
++getAnimalsID(): ArrayList&lt;Integer&gt;
++setName(String name): void
++setId(int id): void
++setSalary(int salary): void
++setAnimalsID(ArrayList&lt;Integer&gt; animalsID): void
++display(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
